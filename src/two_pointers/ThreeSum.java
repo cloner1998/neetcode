@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class ThreeSum {
 
     // it gets time limit error
-    public static List<List<Integer>> threeSum_slow(int[] nums) {
+    public static List<List<Integer>> threeSumSlow1(int[] nums) {
         Set<List<Integer>> uniqueRes = new HashSet<>();
 
         for (int i = 0; i < nums.length - 2; i++) {
@@ -27,7 +27,7 @@ public class ThreeSum {
 
 
     // this piece of code amazingly has O(n^3) complexity
-    public static List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSumSlow2(int[] nums) {
         List<List<Integer>> twoSums = new ArrayList<>();
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i + 1; j < nums.length; j++) {
@@ -47,5 +47,38 @@ public class ThreeSum {
         }
 
         return new ArrayList<>(res);
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]){
+                continue;
+            }
+            int leftPointer = i + 1;
+            int rightPointer = nums.length - 1;
+            while (leftPointer < rightPointer) {
+                int sum = nums[i] + nums[leftPointer] + nums[rightPointer];
+                if (sum == 0) {
+                    res.add(Arrays.asList(nums[i], nums[leftPointer], nums[rightPointer]));
+                    while (leftPointer < rightPointer && nums[leftPointer] == nums[leftPointer + 1]) {
+                        leftPointer++;
+                    }
+                    while (leftPointer < rightPointer && nums[rightPointer] == nums[rightPointer - 1]) {
+                        rightPointer--;
+                    }
+                    leftPointer++;
+                    rightPointer--;
+                }
+                else if (sum < 0) {
+                    leftPointer++;
+                }
+                else if (sum > 0) {
+                    rightPointer--;
+                }
+            }
+        }
+        return res;
     }
 }
