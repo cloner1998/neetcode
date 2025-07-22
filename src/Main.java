@@ -1,8 +1,8 @@
-import two_pointers.ThreeSum;
+import two_pointers.ContainerWithMostWater;
 
 public class Main {
     public static void main(String[] args) {
-        int[] nums = {-1,0,1,2,-1,-4};
-        System.out.println(ThreeSum.threeSum(nums));
+        int[] nums = {1,8,6,2,5,4,8,3,7};
+        System.out.println(ContainerWithMostWater.maxArea(nums));
     }
 }
