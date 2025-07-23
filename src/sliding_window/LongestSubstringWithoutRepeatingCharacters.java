@@ -1,3 +1,5 @@
+package sliding_window;
+
 import java.util.*;
 
 public class LongestSubstringWithoutRepeatingCharacters {

@@ -1,4 +1,4 @@
-import sliding_window.BestTimeToBuyAndSellStock;
+import sliding_window.LongestSubstringWithoutRepeatingCharacters;
 
 public class Main {
     public static void main(String[] args) {
