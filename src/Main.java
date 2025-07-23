@@ -1,8 +1,8 @@
-import two_pointers.ContainerWithMostWater;
+import sliding_window.BestTimeToBuyAndSellStock;
 
 public class Main {
     public static void main(String[] args) {
-        int[] nums = {1,8,6,2,5,4,8,3,7};
-        System.out.println(ContainerWithMostWater.maxArea(nums));
+        int[] prices = {7,1,5,3,6,4};
+        System.out.println(BestTimeToBuyAndSellStock.maxProfit(prices));
     }
 }

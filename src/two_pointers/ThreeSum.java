@@ -38,7 +38,7 @@ public class ThreeSum {
         Set<List<Integer>> res = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             for (List<Integer> twoSum : twoSums) {
-                if (twoSum.get(1) != i && twoSum.get(2) != i && nums[i] + twoSum.get(0) == 0 ) {
+                if (twoSum.get(1) != i && twoSum.get(2) != i && nums[i] + twoSum.get(0) == 0) {
                     List<Integer> temp = Arrays.asList(nums[i], nums[twoSum.get(1)], nums[twoSum.get(2)]);
                     Collections.sort(temp);
                     res.add(temp);
@@ -53,7 +53,7 @@ public class ThreeSum {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
         for (int i = 0; i < nums.length - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]){
+            if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
             int leftPointer = i + 1;
@@ -70,11 +70,9 @@ public class ThreeSum {
                     }
                     leftPointer++;
                     rightPointer--;
-                }
-                else if (sum < 0) {
+                } else if (sum < 0) {
                     leftPointer++;
-                }
-                else if (sum > 0) {
+                } else if (sum > 0) {
                     rightPointer--;
                 }
             }
