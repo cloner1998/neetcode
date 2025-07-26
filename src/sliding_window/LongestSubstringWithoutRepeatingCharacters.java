@@ -58,6 +58,24 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
         return max;
     }
+
+    public static int longestKSubstring(String s, int k) {
+        int start = 0, end = 0, max = -1;
+        Map<Character, Integer> map = new HashMap<>();
+        for(end = 0; end < s.length(); end++ ) {
+            map.put(s.charAt(end), map.getOrDefault(s.charAt(end), 0) + 1);
+            while (map.size() > k){
+                map.put(s.charAt(start), map.getOrDefault(s.charAt(start), 0) - 1);
+                if (map.get(s.charAt(start)) == 0){
+                    map.remove(s.charAt(start));
+                }
+            }
+            if (map.size() == k) {
+                max = Math.max(max, end - start + 1);
+            }
+        }
+        return max;
+    }
 }
 /*
 s = "abcabcbb"
@@ -91,3 +109,4 @@ i=7, char='b': DUPLICATE!
   - start = max(5, 6+1) = 7  [Jump past previous 'b']
   - map={'a':3,'b':7,'c':5}, start=7, window="b" (length=1)
  */
+
